@@ -38,7 +38,13 @@ $result = $connection->query($sql);
                             <td><?php echo $row['title'] ?></td>
                             <td><?php echo $row['category_id'] ?></td>
                             <td><?php echo $row['news_text'] ?></td>
-                            <td><?php echo $row['image'] ?></td>
+                            <td>
+                                <?php if (!empty($row['image'])): ?>
+                                    <img src="uploads/<?php echo $row['image'] ?>" width="80px">
+                                <?php else: ?>
+                                    لا توجد صورة
+                                <?php endif; ?>
+                            </td>
                             <td><?php echo $row['user_id'] ?></td>
                             <td><?php echo $row['status'] ?></td>
 
