@@ -1,100 +1,100 @@
 # 📰 News Management System
-**التكليف الثاني – تطوير نظام إدارة الأخبار**
+**Assignment 2 – News Management System Development**
 
 ---
 
-## 📋 وصف المشروع
-نظام إدارة أخبار مبني بـ PHP و MySQL، يتيح للمستخدمين التسجيل وتسجيل الدخول وإدارة الأخبار والفئات.
+## 📋 Project Description
+A news management system built with PHP and MySQL, allowing users to register, log in, and manage news articles and categories.
 
 ---
 
-## 🗂️ هيكل الملفات
+## 🗂️ File Structure
 
 ```
 ASSIGNMENT2/
 │
-├── index.php               # الصفحة الرئيسية - تعرض جميع الأخبار
-├── Dashboard.php           # لوحة التحكم (يتطلب تسجيل دخول)
+├── index.php               # Home page - displays all news
+├── Dashboard.php           # Control panel (requires login)
 │
-├── LoginForm.php           # صفحة تسجيل الدخول
-├── LoginLogic.php          # منطق تسجيل الدخول
-├── registerForm.php        # صفحة إنشاء حساب
-├── registerLogic.php       # منطق إنشاء الحساب
+├── LoginForm.php           # Login page
+├── LoginLogic.php          # Login logic
+├── registerForm.php        # Register page
+├── registerLogic.php       # Register logic
 │
-├── AddCategory.php         # إضافة فئة جديدة
-├── ShowCategory.php        # عرض جميع الفئات
+├── AddCategory.php         # Add new category
+├── ShowCategory.php        # Display all categories
 │
-├── AddNews.php             # إضافة خبر جديد
-├── ShowNews.php            # عرض جميع الأخبار مع حذف وتعديل
-├── updateNews.php          # تعديل خبر
-├── deleteNews.php          # حذف خبر (تغيير الحالة)
-├── ViewDeletedNews.php     # عرض الأخبار المحذوفة
+├── AddNews.php             # Add new article
+├── ShowNews.php            # Display all news with edit/delete
+├── updateNews.php          # Edit article
+├── deleteNews.php          # Delete article (status change)
+├── ViewDeletedNews.php     # View deleted articles
 │
-├── dbConnection.php        # الاتصال بقاعدة البيانات
-├── style.css               # ملف التنسيق
-└── uploads/                # مجلد الصور
+├── dbConnection.php        # Database connection
+├── style.css               # Stylesheet
+└── uploads/                # Images folder
 ```
 
 ---
 
-## 🗄️ قاعدة البيانات
+## 🗄️ Database Structure
 
-### جدول `users`
-| العمود | النوع |
-|--------|-------|
+### `users` Table
+| Column | Type |
+|--------|------|
 | id | INT AUTO_INCREMENT PRIMARY KEY |
 | name | VARCHAR(100) |
 | email | VARCHAR(100) UNIQUE |
 | password | VARCHAR(255) |
 
-### جدول `categories`
-| العمود | النوع |
-|--------|-------|
+### `categories` Table
+| Column | Type |
+|--------|------|
 | id | INT AUTO_INCREMENT PRIMARY KEY |
 | categ_name | VARCHAR(100) |
 
-### جدول `allnews`
-| العمود | النوع |
-|--------|-------|
+### `allnews` Table
+| Column | Type |
+|--------|------|
 | id | INT AUTO_INCREMENT PRIMARY KEY |
 | title | VARCHAR(255) |
 | category_id | INT (FK → categories.id) |
 | news_text | TEXT |
 | image | VARCHAR(255) |
 | user_id | INT (FK → users.id) |
-| status | TINYINT (1 = منشور, 0 = محذوف) |
+| status | TINYINT (1 = published, 0 = deleted) |
 
 ---
 
-## ⚙️ طريقة التشغيل
+## ⚙️ How to Run
 
-1. تأكد إن عندك **XAMPP** أو **WAMP** مثبت
-2. حط المجلد في `htdocs`
-3. افتح **phpMyAdmin** وأنشئ قاعدة بيانات اسمها `news`
-4. أنشئ الجداول من الجدول فوق
-5. افتح المتصفح على:
+1. Make sure you have **XAMPP** or **WAMP** installed
+2. Place the project folder inside `htdocs`
+3. Open **phpMyAdmin** and create a database named `news`
+4. Create the tables using the structure above
+5. Open your browser and go to:
 ```
 http://localhost/ASSIGNMENT2/index.php
 ```
 
 ---
 
-## 🔑 المميزات
+## 🔑 Features
 
-- ✅ تسجيل حساب جديد مع تشفير كلمة المرور (bcrypt)
-- ✅ تسجيل دخول مع session
-- ✅ إضافة / عرض / تعديل / حذف الأخبار
-- ✅ إضافة وعرض الفئات
-- ✅ رفع صور للأخبار
-- ✅ الحذف بتغيير الحالة (Soft Delete) بدل الحذف الفعلي
-- ✅ عرض الأخبار المحذوفة
+- ✅ User registration with password hashing (bcrypt)
+- ✅ User login with session management
+- ✅ Add / View / Edit / Delete news articles
+- ✅ Add and view categories
+- ✅ Image upload for news articles
+- ✅ Soft delete (status change instead of permanent delete)
+- ✅ View deleted articles
 
 ---
 
-## 👨‍💻 معلومات المساق
+## 👨‍💻 Course Information
 
 | | |
 |--|--|
-| **الجامعة** | الجامعة الإسلامية بغزة |
-| **القسم** | الوسائط المتعددة وتطوير الويب |
-| **المدرس** | صهيب إبراهيم أبو شعر |
+| **University** | Islamic University of Gaza |
+| **Department** | Multimedia and Web Development |
+| **Instructor** | Suhaib Ibrahim Abu Shaar |
