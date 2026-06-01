@@ -65,7 +65,7 @@ $result = $connection->query($sql);
                             </td>
                             <td><?php echo $row['user_id'] ?></td>
                             <td><?php echo $row['status'] ?></td>
-                            <td style="padding: 15px;"> <a href="updateNews.php?id=<?php echo $row['id'] ?>&title=<?php echo $row['title'] ?>&Category_id=<?php echo $row['category_id'] ?>&details= <?php echo $row['news_text'] ?>&img=<?php echo $row['image'] ?>" class="update">update </a>
+                            <td style="padding: 15px;"> <a href="updateNews.php?id=<?php echo $row['id'] ?>&title=<?php echo $row['title'] ?>&Category_id=<?php echo $row['category_id'] ?>&details= <?php echo $row['news_text'] ?>&img=<?php echo $row['image'] ?>" class="update">update News</a>
                                 <br> <br><a href="?id=<?php echo $row['id'] ?>&statusCode=201" class="delete">delete News </a>
                             </td>
                         </tr>
