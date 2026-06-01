@@ -11,6 +11,11 @@ if ($connection->error == false) {
         $user_id = $_SESSION['user']['id'];
 
         $img = $_FILES['img']['name'];
+        if (!empty($_FILES['img']['name'])) {
+            move_uploaded_file($_FILES['img']['tmp_name'], "uploads/" . $img);
+        } else {
+            $img = ""; // لو ما رفع صورة
+        }
 
 
         $sql = "INSERT INTO allnews (title , category_id ,news_text ,image,user_id,status) VALUES ('$title' ,'$category_id' ,'$details' ,'$img' , '$user_id','1')";
@@ -33,28 +38,29 @@ if ($connection->error == false) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add news</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <center>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+    <div class="wrapper">
         <h1>Add new News</h1>
         <form action="" method="post" enctype="multipart/form-data">
-            <input type="text" name="title" placeholder="title" require><br><br>
-            <select name="category_id" require>
+            <input type="text" name="title" placeholder="title" require> <br>
+            <select name="category_id" require style="width: 250px; padding: 5px 10px; font-size: 15px;">
 
                 <option value="">chose category_id</option>
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <option value="<?php echo $row['id']; ?>"> <?php echo $row['categ_name'] ?></option>
                 <?php } ?>
-            </select><br><br>
+            </select><br>
 
-            <textarea name="details" placeholder="details" require></textarea><br><br>
-            <input type="file" name="img"><br><br>
+            <textarea name="details" placeholder="details" require rows="5" cols="30"> </textarea><br>
+            <input type="file" name="img"><br>
             <input type="submit" name="add" value="Add">
 
         </form>
-    </center>
+    </div>
 </body>
 
 </html>

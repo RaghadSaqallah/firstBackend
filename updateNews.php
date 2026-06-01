@@ -41,15 +41,16 @@ $result = $connection->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <center>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+    <div class="wrapper">
         <h1>Update News</h1>
         <form action="" method="post" enctype="multipart/form-data">
-            <input type="text" name="title" value="<?php echo $title; ?>" placeholder="title" required><br><br>
+            <input type="text" name="title" value="<?php echo $title; ?>" placeholder="title" required><br>
 
-            <select name="category_id" required>
+            <select name="category_id" required style="width: 250px; padding: 5px 10px; font-size: 15px;">
                 <option value="">choose category_id</option>
                 <?php while ($row = $result->fetch_assoc()) {
                     $selected = ($row['id'] == $category_id) ? "selected" : "";
@@ -58,20 +59,20 @@ $result = $connection->query($sql);
                         <?php echo $row['categ_name'] ?>
                     </option>
                 <?php } ?>
-            </select><br><br>
+            </select><br>
 
-            <textarea name="details" placeholder="details" required><?php echo $details; ?></textarea><br><br>
+            <textarea name="details" placeholder="details" required rows="5" cols="30"><?php echo $details; ?>  </textarea><br>
 
 
             <div style="margin-bottom: 12px;">
                 <span style="font-size: 12px; color: #555;">currant img: <strong><?php echo $img; ?></strong></span><br>
             </div>
 
-            <input type="file" name="img"><br><br>
+            <input type="file" name="img"><br>
             <input type="submit" name="update" value="Update">
 
         </form>
-    </center>
+    </div>
 </body>
 
 </html>

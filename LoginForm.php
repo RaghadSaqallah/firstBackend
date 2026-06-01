@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <center>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column;">
+
+    <div class="wrapper">
         <h1>Welcome LOG IN</h1>
 
         <?php
@@ -19,6 +21,9 @@
         }
         ?>
 
+
+
+
         <form action="LoginLogic.php" method="post">
 
             <label for="">Email</label>
@@ -28,11 +33,11 @@
             <input type="password" name="password">
             <br>
             <br>
-            <input type="submit" name="submit" value="login">
+            <input type="submit" name="submit" value="login" class="btn">
 
         </form>
 
-    </center>
+    </div>
 </body>
 
 </html>

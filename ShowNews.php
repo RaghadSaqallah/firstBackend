@@ -29,45 +29,52 @@ $result = $connection->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show News</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>This is all the news</h1>
-    <table border="1px" width=100% cellpadding="10px" callspacing="0px">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>title</th>
-                <th>Category_id</th>
-                <th>details</th>
-                <th>img</th>
-                <th>user_id</th>
-                <th>status</th>
-            </tr>
-        </thead>
+    <div class="table-style">
+        <table cellpadding="10px">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>Category_id</th>
+                    <th>details</th>
+                    <th>img</th>
+                    <th>user_id</th>
+                    <th>status</th>
+                    <th>edit</th>
+                </tr>
+            </thead>
 
-        <tbody>
-            <?php if ($result->num_rows != 0) {
-                while ($row = $result->fetch_assoc()) { ?>
-                    <tr>
-                        <td><?php echo $row['id'] ?></td>
-                        <td><?php echo $row['title'] ?></td>
-                        <td><?php echo $row['category_id'] ?></td>
-                        <td><?php echo $row['news_text'] ?></td>
-                        <td><?php echo $row['image'] ?></td>
-                        <td><?php echo $row['user_id'] ?></td>
-                        <td><?php echo $row['status'] ?></td>
-                        <td> <a href="updateNews.php?id=<?php echo $row['id'] ?>&title=<?php echo $row['title'] ?>&Category_id=<?php echo $row['category_id'] ?>&details= <?php echo $row['news_text'] ?>&img=<?php echo $row['image'] ?>">update Category</a>
-                            <br> <a href="?id=<?php echo $row['id'] ?>&statusCode=201">delete Category </a>
-                        </td>
-                    </tr>
-            <?php }
-            } ?>
+            <tbody>
+                <?php if ($result->num_rows != 0) {
+                    while ($row = $result->fetch_assoc()) { ?>
+                        <tr>
+                            <td><?php echo $row['id'] ?></td>
+                            <td><?php echo $row['title'] ?></td>
+                            <td><?php echo $row['category_id'] ?></td>
+                            <td><?php echo $row['news_text'] ?></td>
+                            <td>
+                                <?php if (!empty($row['image'])): ?>
+                                    <img src="uploads/<?php echo $row['image'] ?>" width="80px">
+                                <?php else: ?>
+                                    لا توجد صورة
+                                <?php endif; ?>
+                            </td>
+                            <td><?php echo $row['user_id'] ?></td>
+                            <td><?php echo $row['status'] ?></td>
+                            <td style="padding: 15px;"> <a href="updateNews.php?id=<?php echo $row['id'] ?>&title=<?php echo $row['title'] ?>&Category_id=<?php echo $row['category_id'] ?>&details= <?php echo $row['news_text'] ?>&img=<?php echo $row['image'] ?>" class="update">update Category</a>
+                                <br> <br><a href="?id=<?php echo $row['id'] ?>&statusCode=201" class="delete">delete Category </a>
+                            </td>
+                        </tr>
+                <?php }
+                } ?>
 
-        </tbody>
-
-
-    </table>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

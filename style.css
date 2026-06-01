@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #eee;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav {
+    padding: 20px 0;
+    background-color: #dfe1e2;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+.hero {
+    background-color: #bf83b6;
+    padding: 50px;
+    margin: 20px;
+
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+
+    align-self: baseline;
+    padding: 5px 0;
+}
+
+input {
+
+    width: 250px;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.btn {
+    padding: 7px 10px;
+    cursor: pointer;
+    font-size: 15px;
+    border: transparent;
+}
+
+.btn:hover {
+    background-color: rgb(207, 209, 211);
+}
+
+.wrapper {
+
+    background-color: #bf83b6;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+
+table {
+    padding: 20px 0;
+    border-collapse: collapse;
+    width: 80%;
+    border: transparent;
+    margin: 0 auto;
+}
+
+tr {
+    border-bottom: 1px solid black;
+}
+
+th {
+    background-color: #bf83b6;
+    text-align: left;
+}
+
+.table-style {
+    margin-top: 50px;
+
+}
+
+
+.delete {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 3px 7px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.update {
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px 7px;
+    text-decoration: none;
+    border-radius: 5px;
+}
