@@ -96,5 +96,4 @@ http://localhost/ASSIGNMENT2/index.php
 | | |
 |--|--|
 | **University** | Islamic University of Gaza |
-| **Department** | Multimedia and Web Development |
 | **Instructor** | Suhaib Ibrahim Abu Shaar |
